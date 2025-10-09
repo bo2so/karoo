@@ -4,6 +4,8 @@
 
 Karoo started as a weekend experiment: a lightweight Stratum proxy so a rack of Nerdminers could share a single upstream connection. The idea quickly grew into a general-purpose, multi-protocol Stratum front-end that keeps upstream pools happy while CPU, GPU, or embedded rigs hammer away behind it.
 
+The codebase follows Go best practices with a clean, modular architecture for maintainability and extensibility.
+
 ## Features
 
 - **Upstream on demand** – automatically dials the configured pool only when miners are connected and backs off with jittered retries on failures.
@@ -15,9 +17,9 @@ Karoo started as a weekend experiment: a lightweight Stratum proxy so a rack of 
 ## Getting Started
 
 ```bash
-make build        # compile to build/karoo
-make build-static # compile to build/karoo-static (CGO disabled)
-make run          # run with ./config.json
+make build        # compile to bin/karoo
+make run          # build and run with ./config.json
+make all          # clean, format, vet, and build
 ```
 
 The default configuration listens on `:3334` for Stratum clients and connects to the upstream pool defined in `config.json`. HTTP status endpoints are exposed at `:8080` by default.
@@ -30,14 +32,28 @@ The default configuration listens on `:3334` for Stratum clients and connects to
 - `compat.strict_broadcast` – when `false`, forwards unfamiliar `mining.*` messages unchanged.
 - `vardiff.enabled` – toggle simple per-worker VarDiff adjustments.
 
-See the commented sample at the bottom of `main.go` for a full reference.
+See `config.example.json` for a full configuration reference.
+
+## Architecture
+
+The codebase is organized following Go standards:
+
+- `cmd/karoo/` - Main application entry point
+- `internal/` - Private application modules:
+  - `client/` - Client connection management
+  - `config/` - Configuration loading and validation
+  - `metrics/` - Statistics and monitoring
+  - `protocol/` - Stratum protocol definitions
+  - `proxy/` - Core proxy logic and orchestration
+  - `upstream/` - Upstream pool connection management
+  - `utils/` - Shared utilities and helpers
 
 ## Development Workflow
 
-- Build with `make build` (outputs `build/karoo`).
-- Run unit-style checks by executing `go test ./...` (once tests are added).
-- Format code with `gofmt` (the Makefile target already does this before building).
-- Publish binaries by pushing a tag like `v1.0.0` or running the GitHub Actions workflow manually.
+- Build with `make build` (outputs `bin/karoo`)
+- Run quality checks with `make fmt vet lint`
+- Test with `go test ./...` (tests to be added)
+- Full build pipeline with `make all`
 
 ## Roadmap
 
@@ -54,7 +70,5 @@ Karoo is released under the GNU General Public License, version 2. See [LICENSE]
 If Karoo is useful to you, consider supporting development:
 
 - **BTC**: `bc1qw2raw7urfuu2032uyyx9k5pryan5gu6gmz6exm`
-- **DOGE**: `DTAkhF6oHiK9HmcsSk3RPZp5XqR2bvCaHK`
 - **ETH**: `0xdb4d2517C81bE4FE110E223376dD9B23ca3C762E`
-- **LTC**: `LSQFLPM89gABNEGutwWMFA4ma24qDVwy8m`
 - **TRX**: `TTznF3FeDCqLmL5gx8GingeahUyLsJJ68A`
