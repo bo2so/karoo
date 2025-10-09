@@ -11,10 +11,7 @@ BUILD_TIME	= $(shell date +%Y-%m-%dT%H:%M:%S%z)
 LDFLAGS		= -s -w -X main.version=$(VERSION) -X main.buildTime=$(BUILD_TIME)
 
 # Install paths
-INSTALL_BIN_DIR	?= /usr/local/bin
-INSTALL_CONFIG_DIR ?= /etc/karoo
 CONFIG_SOURCE	?= config.example.json
-CONFIG_DEST	= $(INSTALL_CONFIG_DIR)/config.json
 DOCKER_IMAGE	= karoo:latest
 SYSTEMD_PATH	= /etc/systemd/system/karoo.service
 
@@ -71,18 +68,8 @@ docker:	## Build Docker image
 	@echo "Building Docker image $(DOCKER_IMAGE)..."
 	@docker build -t $(DOCKER_IMAGE) .
 
-install: build	## Install binary and config
-	@echo "Installing binary to $(INSTALL_BIN_DIR)..."
-	@install -d $(INSTALL_BIN_DIR)
-	@install -m 755 $(BUILD_DIR)/$(BIN) $(INSTALL_BIN_DIR)/$(BIN)
-	@echo "Installing configuration to $(INSTALL_CONFIG_DIR)..."
-	@install -d $(INSTALL_CONFIG_DIR)
-	@if [ -f $(CONFIG_DEST) ]; then \
-		install -m 644 $(CONFIG_SOURCE) $(CONFIG_DEST).example; \
-		echo "Config preserved; example at $(CONFIG_DEST).example"; \
-	else \
-		install -m 644 $(CONFIG_SOURCE) $(CONFIG_DEST); \
-	fi
+install: build	## Install binary and config (auto-detects user/system)
+	@./scripts/install.sh $(BUILD_DIR)/$(BIN) $(CONFIG_SOURCE)
 
 systemd: install	## Install systemd unit
 	@echo "Installing systemd unit at $(SYSTEMD_PATH)..."
